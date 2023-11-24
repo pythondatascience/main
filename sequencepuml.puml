@@ -1,0 +1,38 @@
+@startuml
+
+actor User
+participant OpenAI 
+participant PNU
+participant Menu
+participant Bus
+participant Schedule
+participant gui
+
+activate User
+User -> OpenAI : ask
+activate OpenAI
+OpenAI -> PNU : point
+
+activate PNU 
+PNU -> Menu : get data
+activate Menu
+Menu-> PNU : updated data
+deactivate Menu
+
+PNU -> Bus : get data
+activate Bus
+Bus-> PNU : updated data
+deactivate Bus
+
+PNU -> Schedule : get data
+activate Schedule
+Schedule -> PNU : updated data
+deactivate Schedule
+PNU -> OpenAI : response
+deactivate PNU
+OpenAI -> gui : data
+deactivate OpenAI
+deactivate User
+activate gui 
+gui -> User_Screen : show info
+deactivate User

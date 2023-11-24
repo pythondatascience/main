@@ -1,0 +1,59 @@
+@startuml
+class User {
+    - information_list: list
+    - want_to_know: list
+
+    + wnt_know(want_to_know): answer
+}
+
+
+class PNU {
+    + request_HTTP(PNU_website): response
+    + get_inf(API): data
+    + extract_data(data): want_data
+    + store_data(want_data): extracted_want_data == updated data
+}
+
+class Bus {
+    - bus_inf: list
+
+    + update(): updated_bus
+}
+
+class Schedule {
+    - schedule_inf: list
+
+    + update(): updated_schedule
+}
+
+class Menu {
+    - menu_inf: list
+
+    + update(): updated_menu
+}
+
+class OpenAI {
+    - inf: list
+    - storage : list
+    + update(): updated_inf_txt
+    + point_URL() : PNU_location 
+}
+
+class gui {
+    + show(): updated_inf_txt
+}
+
+User "*" -- "1" OpenAI : asking >
+OpenAI "*" -- "1" PNU : point >
+PNU "*" -- "1" Menu : find data > 
+PNU "*" -- "1" Bus : find data >
+PNU "*" -- "1" Schedule : find data >
+PNU "*" -- "1" Menu : update data <
+PNU "*" -- "1" Bus : update data <
+PNU "*" -- "1" Schedule : update data <
+PNU "*" -- "1" OpenAI : > update data
+OpenAI "*" -- "1" gui : > convert
+gui "*" -- "1" User : > show info
+@enduml
+
+
