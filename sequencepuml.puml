@@ -1,0 +1,47 @@
+@startuml
+
+actor User
+participant OpenAI 
+participant Prompting
+participant PNU_Crawling
+participant Menu
+participant Notice
+participant Schedule
+participant gui
+
+activate User
+User -> OpenAI : ask
+activate OpenAI
+OpenAI -> Prompting : need data
+activate Prompting
+Prompting -> PNU_Crawling : get raw data
+activate PNU_Crawling
+
+PNU_Crawling -> Notice : find data
+activate Notice
+Notice -> Notice : make csv
+Notice-> PNU_Crawling : give data
+deactivate Notice 
+PNU_Crawling -> Schedule : find data
+activate Schedule
+Schedule -> Schedule : make csv
+Schedule -> PNU_Crawling : give data
+deactivate Schedule
+PNU_Crawling -> Menu : find data
+activate Menu
+Menu -> Menu : make csv
+Menu -> PNU_Crawling : give data
+deactivate Menu
+PNU_Crawling -> Prompting : give raw data
+deactivate PNU_Crawling
+Prompting -> Prompting : refine data to txt
+Prompting -> OpenAI : update data
+deactivate Prompting
+OpenAI -> OpenAI : make answer
+OpenAI -> gui : give answer
+deactivate OpenAI
+activate gui 
+gui -> User : show info
+deactivate gui
+deactivate OpenAI
+deactivate User

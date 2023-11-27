@@ -1,0 +1,74 @@
+@startuml
+class User {
+    - request : string
+
+    + wnt_know(request): void
+}
+
+
+class PNU_Crawling {
+    - response : bool
+    - csv_file_list : list<csv>    
+    
+    + request_HTTP(PNU_website): response
+    + make_list(csv_file) : csv_file_list
+}
+
+class Prompting{
+    - txt_data : txt
+    + refine_data(csv_file_list) : txt_data
+}
+
+class Notice {
+    - Notice_info: list
+    - csv_file : csv
+
+    + get_inf(API): notice_info
+    + make_csv(notice_info): csv_file      
+}
+
+class Schedule {
+    - schedule_info: list
+    - csv_file : csv
+
+    + get_inf(API): schedule_info 
+    + make_csv(schedule_info): csv_file    
+}
+
+class Menu {
+    - menu_info: list
+    - csv_file : csv
+
+    + get_inf(API): menu_info
+    + make_csv(menu_info): csv_file    
+}
+
+class OpenAI {    
+    - info: list<string>
+    - answer : list<string>
+
+    
+    + extract_info(request) : info
+    + go_to_prompt(info) : void
+    + make_answer(txt_data): answer    
+}
+
+class gui {
+    + show(answer): void
+}
+
+User "*" -- "1" OpenAI : asking >
+OpenAI "*" -- "1" Prompting : need data >
+PNU_Crawling "*" -- "1" Menu : find data > 
+PNU_Crawling "*" -- "1" Notice : find data >
+PNU_Crawling "*" -- "1" Schedule : find data >
+PNU_Crawling "*" -- "1" Menu : give data <
+PNU_Crawling "*" -- "1" Notice : give data <
+PNU_Crawling "*" -- "1" Schedule : give data <
+Prompting "*" -- "1" OpenAI : > update data
+Prompting "1" -- "1" PNU_Crawling : give raw data <
+OpenAI "*" -- "1" gui : > give answer
+gui "*" -- "1" User : > show info
+@enduml
+
+
