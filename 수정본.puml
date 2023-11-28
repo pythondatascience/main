@@ -1,0 +1,96 @@
+@startuml
+
+class gui {
+    + show(answer): void
+}
+
+class OpenAI {    
+    - info: list<string>
+    - answer : list<string>
+    - turn_on : int
+
+    
+    + extract_info(request) : info
+    + go_to_prompt(info) : void
+    + make_answer(txt_data): answer    
+}
+
+class Prompting{
+    - txt_data : txt
+    + refine_data(csv_file_list) : txt_data
+}
+
+class PNU_Crawling {
+    - response : bool
+      
+    
+    + request_HTTP(PNU_website): response
+    + make_list(csv_file) : csv_file_list
+}
+
+class check_data{
+    - csv_file_list : list<csv>  
+
+    +check(csv_file) :bool
+
+}
+
+class Storage_csv {
+    - last_updated_time : int
+    - csv_file_list : list<csv>  
+
+    +compute_time(last_updated_time,turn_on) : bool
+    +update_data():void
+}
+
+
+class Notice {
+    - Notice_info: list
+    - csv_file : csv
+
+    + get_inf(API): notice_info
+    + make_csv(notice_info): csv_file      
+}
+
+class Schedule {
+    - schedule_info: list
+    - csv_file : csv
+
+    + get_inf(API): schedule_info 
+    + make_csv(schedule_info): csv_file    
+}
+
+class Menu {
+    - menu_info: list
+    - csv_file : csv
+
+    + get_inf(API): menu_info
+    + make_csv(menu_info): csv_file    
+}
+
+
+
+
+<> diamond
+gui "*" - "1" OpenAI : asking >
+OpenAI "*" -- "1" Prompting : need data >
+Prompting "*" -- "1" OpenAI : > update data
+Prompting "*" -- "1" PNU_Crawling : access >
+Storage_csv -- diamond 
+check_data  . diamond  :checking
+diamond .> Prompting : same
+diamond .> PNU_Crawling :different
+PNU_Crawling "1" - "*"  Storage_csv: > give csv file
+PNU_Crawling "*" -- "1" Menu : find data > 
+PNU_Crawling "*" -- "1" Notice : find data >
+PNU_Crawling "*" -- "1" Schedule : find data >
+PNU_Crawling "*" -- "1" Menu : give data <
+PNU_Crawling "*" -- "1" Notice : give data <
+PNU_Crawling "*" -- "1" Schedule : give data <
+OpenAI "*" -- "1" gui : > give answer
+Storage_csv  "*" -- "1" OpenAI : turn on time <
+Storage_csv "*"  -- "1" OpenAI : give data(before the day over) > 
+
+@enduml
+
+
