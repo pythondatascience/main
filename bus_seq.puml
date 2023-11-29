@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+participant gui
+participant OpenAI 
+participant Bus
+
+
+activate User
+User -> gui : ask
+activate gui
+gui -> OpenAI : asking
+activate OpenAI
+OpenAI -> Bus : need data
+activate Bus
+
+OpenAI -> OpenAI : make answer
+OpenAI -> gui : give answer
+deactivate OpenAI
+
+Bus -> gui : give data
+deactivate Bus
+gui -> User : show info
+
+deactivate OpenAI
+
+
+@enduml

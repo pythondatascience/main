@@ -1,0 +1,49 @@
+@startuml
+
+actor User
+participant gui
+participant OpenAI 
+participant Prompting
+participant Storage_csv
+participant PNU_Crawling
+participant Menu
+
+
+
+activate User
+User -> gui : ask
+activate gui
+gui -> OpenAI : asking
+activate OpenAI
+OpenAI -> Prompting : need data
+activate Prompting
+Prompting -> Storage_csv : access
+activate Storage_csv
+Storage_csv -> PNU_Crawling : request csv file (once a day)
+activate PNU_Crawling
+
+
+PNU_Crawling -> Menu : find data
+activate Menu
+Menu -> Menu : make csv
+Menu -> PNU_Crawling : give data
+deactivate Menu
+
+
+PNU_Crawling -> Storage_csv : give csv file
+deactivate PNU_Crawling
+Storage_csv -> Prompting : give csv file (once a day)
+deactivate Storage_csv
+Prompting -> Prompting : refine data (to txt)
+Prompting -> OpenAI : update data
+deactivate Prompting
+OpenAI -> OpenAI : make answer
+OpenAI -> gui : give answer
+deactivate OpenAI
+
+gui -> User : show info
+
+deactivate OpenAI
+
+
+@enduml

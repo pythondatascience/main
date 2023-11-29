@@ -1,0 +1,96 @@
+@startuml
+
+class gui {
+    + show(answer : list<string>): void
+}
+
+class OpenAI {    
+    - info: list<string>
+    - answer : list<string>
+    - turn_on : int
+
+    
+    + extract_info(request : string) : info
+    + go_to_prompt(info : list<string>) : void
+    + make_answer(txt_data : txt): answer    
+}
+
+class Prompting{
+    - txt_data : txt
+    
+    + refine_data(csv_file_list : list<csv>) : txt_data
+    + protect_txt(txt_data : txt) : txt_data (error_loss : string , dont_care : string)  
+}
+
+class PNU_Crawling {
+    - response : bool
+      
+    
+    + request_HTTP(PNU_website : string): response
+    + make_list(csv_file : csv) : csv_file_list
+}
+
+class Storage_csv {
+    - last_updated_time : int
+    - csv_file_list : list<csv>  
+
+    +compute_time(last_updated_time : int ,turn_on : int) : bool
+    +update_data():void
+}
+
+
+class Notice {
+    - Notice_info: list<string>
+    - csv_file : csv
+
+    + get_inf(API : string): notice_info
+    + make_csv(notice_info : list<string>): csv_file      
+}
+
+class Schedule {
+    - schedule_info: list<string>
+    - csv_file : csv
+
+    + get_inf(API : string): schedule_info 
+    + make_csv(schedule_info : list<string>): csv_file    
+}
+
+class Menu {
+    - menu_info: list<string>
+    - csv_file : csv
+
+    + get_inf(API : string): menu_info
+    + make_csv(menu_info : list<string>): csv_file    
+}
+
+class Bus {
+    - bus_info : list<bus_stop : string, pos : list<float>, is_stop : bool, is_up : bool>
+    
+    + get_info(API : string) : bus_info
+    + show_map(bus_info) : void
+}
+
+
+gui "*" - "1" OpenAI : asking >
+OpenAI "*" -- "1" Prompting : need data >
+Prompting "*" -- "1" OpenAI : > update data
+Prompting "*" -- "1" Storage_csv : access >
+
+Prompting "1" -- "1" Storage_csv : give csv file (once a day) <
+Storage_csv "1" -- "1" PNU_Crawling : request csv file (once a day) > 
+
+PNU_Crawling "1" - "*"  Storage_csv: > give csv file
+PNU_Crawling "*" -- "1" Menu : find data > 
+PNU_Crawling "*" -- "1" Notice : find data >
+PNU_Crawling "*" -- "1" Schedule : find data >
+PNU_Crawling "*" -- "1" Menu : give data <
+PNU_Crawling "*" -- "1" Notice : give data <
+PNU_Crawling "*" -- "1" Schedule : give data <
+OpenAI "*" -- "1" gui : > give answer
+
+OpenAI "1" -- "1" Bus : need data >
+Bus "1" -- "1" gui : give data >
+
+@enduml
+
+

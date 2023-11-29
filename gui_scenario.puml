@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant gui
+participant OpenAI 
+
+activate User
+User -> gui : ask
+activate gui
+gui -> OpenAI : asking
+activate OpenAI
+OpenAI -> OpenAI : collecting info
+OpenAI -> gui : give answer
+deactivate OpenAI
+gui -> User : show info
+
+
+
+
+
