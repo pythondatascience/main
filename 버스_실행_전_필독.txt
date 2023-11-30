@@ -28,3 +28,8 @@ pip install pywebview #webview
 #추가
 tkinter랑 webview 설치하셔야 tkinter로 지도 볼 수 있습니다
 꼭 설치해주세요
+
+만약 tkinter랑 webview까셨는데도 파일 실행이 안되면 tkinter는 sudo apt install python3-tk로 까시고 webview는 https://pywebview.flowrl.com/guide/installation.html#dependencies
+여기 링크타고 가셔서 pip install pywebview[qt] 하고 파일 실행시켜보세요
+만약 안되면 링크 밑에 linux에 요구사항들 터미널에 실행시켜보세요
+이게 윈도우에선 pip만 하면 문제없이 돌아가는데 우분투는 뭘 자꾸 깔아야되네요
