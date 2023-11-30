@@ -44,8 +44,8 @@ def crawling_and_write_to_csv(url, meal_type, csv_file, target_date):
     
     menu_part1, menu_part2 = split_menu(menu_list)
 
-    write_to_csv(csv_file, menu_part1, meal_type, target_date, "학생회관", "특별")
-    write_to_csv(csv_file, menu_part2, meal_type, target_date, "학생회관", "일반") if menu_part2 else None
+    write_to_csv(csv_file, menu_part1, meal_type, target_date, "학생회관", "일품")
+    write_to_csv(csv_file, menu_part2, meal_type, target_date, "학생회관", "특식") if menu_part2 else None
 
 def main():
     # Define meal types
