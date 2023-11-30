@@ -1,6 +1,8 @@
 pip install folium
 pip install googlemaps
 pip install lxml
+pip install tk #tkinter
+pip install pywebview #webview
 
 으로 일단 모듈 설치하신뒤에 파일 실행시키면 됩니다. 
 본인이 원하는 노선 확인하고 싶으면 
@@ -22,3 +24,7 @@ pip install lxml
 
 파일 실행시키면 bus_track.py 저장장소에 html파일 하나 생성될건데 그거 여시면 지도 확인하실수 있습니다
 지도 마우스 휠로 확대 축소 가능하구요 핀 누르시면 현재 무슨 정류장인지, 상행/하행 확인도 가능합니다 상행이면 핀 붉은색 하행이면 파란색 정차면 검정색입니다
+
+#추가
+tkinter랑 webview 설치하셔야 tkinter로 지도 볼 수 있습니다
+꼭 설치해주세요
