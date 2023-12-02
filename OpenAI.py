@@ -6,7 +6,7 @@ import openai
 #import bus_track
 import subprocess
 
-openai.api_key = "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"
+openai.api_key = ""
 hidden_bus_key = "31qwef#fAWedf#fFsfdew" #버스 위치에 관한 답변을 받을때만을 판별
 
 def user_input():
