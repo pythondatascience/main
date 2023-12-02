@@ -76,8 +76,8 @@ class BusanMap:
         return self.bus_map
 
 
-gmaps_key =  'AIzaSyA7PxgOBSjKmZ63DhoJOE-PJR4gbm4WYNw'
-bus_api_key = 'Fc0bdu/n6BeHierLzLLkEkCEhc70zpeD92N0vcWYA3Pv/i22Bl8Z9yIGLv8AwjMj8SVDTsXZLohzxgATlYcvIQ=='
+gmaps_key =  ''
+bus_api_key = ''
 line_id = 5291107000 #5291107000 : keumjunggu7, key=5200051000 : 51
 
 try:
