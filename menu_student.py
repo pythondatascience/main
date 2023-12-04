@@ -55,7 +55,7 @@ def main():
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(['메뉴', '식사시간', '날짜', '식당', '타입'])
 
-        current_date = datetime(2023, 10, 15)
+        current_date = datetime.now()
         target_date = current_date.strftime("%Y-%m-%d")
 
         if current_date.weekday() == 4:
