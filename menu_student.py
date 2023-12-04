@@ -26,58 +26,52 @@ def get_menu_info(item_title):
     return menu_string, meal_type
 
 def crawling_and_write_to_csv(url, csv_writer, target_date, meal_time):
-    response = requests.get(url)
+    response = requests.get(url, allow_redirects=False)
 
     if response.status_code == 200:
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
 
-        # "일품","일반","아침"에 해당하는 h4 태그를 찾기
         item_titles = soup.find_all('h4', class_='MenuTableMultiple_h4-title__DwlrY')
 
         for item_title in item_titles:
             menu_string, meal_type = get_menu_info(item_title)
 
-            # csv파일 작성
             csv_writer.writerow([menu_string, meal_time, target_date, "금정회관-학생", meal_type])
 
+    elif response.status_code == 302 or response.status_code == 301:
+        redirected_url = response.headers['Location']
+        print(f"Redirected to: {redirected_url}")
+        return  # 리디렉션이면 함수 종료
+
     else:
-        print(f"Failed to retrieve the page. Status code: {response.status_code}")#url이 없는 경우
+        print(f"Failed to retrieve the page. Status code: {response.status_code}")
 
 def main():
-    #meal times
     meal_times = ["breakfast", "lunch", "dinner"]
-
-    #CSV file path
     csv_file_path = "menu_student.csv"
 
-    # Open a CSV file in write mode
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
         csv_writer = csv.writer(csvfile)
-
-        # 헤더 작성
         csv_writer.writerow(['메뉴', '식사시간', '날짜', '식당', '타입'])
 
-        # 오늘 날짜 확인
-        current_date = datetime.now()
+        current_date = datetime(2023, 10, 15)
         target_date = current_date.strftime("%Y-%m-%d")
 
-        # 오늘과 내일 메뉴, 금요일은 하루만 작성
-        if current_date.weekday() == 4:  # 4 ->Friday
+        if current_date.weekday() == 4:
             for meal_time in meal_times:
                 meal_url = get_meal_url_for_date(meal_time, target_date)
                 crawling_and_write_to_csv(meal_url, csv_writer, target_date, meal_time)
         else:
-            # Loop through meal times and scrape, and write to CSV for both today and tomorrow
             for _ in range(2):
                 for meal_time in meal_times:
                     meal_url = get_meal_url_for_date(meal_time, target_date)
                     crawling_and_write_to_csv(meal_url, csv_writer, target_date, meal_time)
 
-                #다음날 작성
                 target_date = (current_date + timedelta(days=1)).strftime("%Y-%m-%d")
 
     print("금정회관 학생 메뉴 정보입니다.")
 
 if __name__ == "__main__":
     main()
+
