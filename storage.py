@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 script_csv_pairs = {
     "menu_student.py": "menu_student.csv",
     "공지사항.py": "Notice.csv",
-    "schedule.py": "schedule_data.csv"
+    "학사일정.py": "schedule_data.csv"
     }
 
 # 현재 작업 디렉토리를 변경합니다. (파이썬 파일이 존재하는 경로)
