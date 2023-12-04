@@ -4,14 +4,13 @@ from datetime import datetime, timedelta
 
 # 스크립트와 CSV 파일 이름의 쌍을 정의합니다.
 script_csv_pairs = {
-    "menu_student2.py": "menu_student.csv",
-    "menu_staff2.py": "menu_staff.csv",
-    "menu_student_union2.py": "menu_student_union.csv",
-    "menu_saetbeol2.py": "menu_saetbeol.csv",
-}
+    "menu_student.py": "menu_student.csv",
+    "공지사항.py": "Notice.csv",
+    "schedule.py": "schedule_data.csv"
+    }
 
 # 현재 작업 디렉토리를 변경합니다. (파이썬 파일이 존재하는 경로)
-os.chdir("/home/pnuee/meal/menu_py")
+os.chdir("/home/pnuee/menu")
 
 # 각 스크립트를 실행합니다.
 for script, csv_file in script_csv_pairs.items():
