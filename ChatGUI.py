@@ -1,56 +1,68 @@
-# sudo apt-get install python3-tk (Ubuntu20.04)
-# sudo pip3 install openai==0.28
-# sudo pip3 install folium
-# sudo pip3 install googlemaps
-# sudo pip3 install lxml
-# sudo pip3 install beautifulsoup4 (확인필요)
+## 사용한 opensource, 모듈
+# tkinter 모듈
+# datetime 모듈 (별다른 모듈설치가 필요없다고 하는데 확인필요!)
 
-import tkinter as tk
-from OpenAI import answer
+## Ubuntu20.04 기준 모듈 설치방법
+# sudo apt-get install python3-tk
+
+## 독창적인 부분
+# 1. 단순히 터미널에서 실행하는 것이 아니라 채팅창을 만들어 사용자 편의성 증대
+# 2. OpenAI.py 파일을 import하여 두 파이썬 파일을 연결
+
+## 참조문헌
+# https://076923.github.io/posts/Python-tkinter-1/ : 해당 홈페이지의 tkinter 강의 참조
+
+## 제작방식
+# 혼합(정주영)
+
+import tkinter
+import datetime
 from tkinter import font
+from OpenAI import answer
 
-# 챗봇 응답 함수
-def respond_to_user(event=None):
+today = datetime.date.today()
+tomorrow = today + datetime.timedelta(days=1)
+
+def chatPNU(event = None):
     user_input = user_input_field.get()
     
-    if user_input.lower() == "종료" or user_input.lower() == "종료 ":  # 사용자가 '취소'를 입력한 경우
-        root.destroy()  # 창을 닫음
+    if user_input.lower() == "종료" or user_input.lower() == "종료 ":
+        PNU_window.destroy()  # close window
         return
 
-    chat_history.insert(tk.END, "나: " + user_input + "\n")
-    chat_history.insert(tk.END, "ChatPNU: " + answer(user_input) + "\n")
-    user_input_field.delete(0, tk.END)
+    chat_field.insert(tkinter.END, "나: " + user_input + "\n", "User_color")
+    chat_field.insert(tkinter.END, "ChatPNU: " + answer(user_input) + "\n")
+    user_input_field.delete(0, tkinter.END)
 
-    chat_history.see(tk.END)
+    chat_field.see(tkinter.END)
 
-# GUI 생성
-root = tk.Tk()
-root.title("챗봇 인터페이스")
+# Setting GUI windows
+PNU_window = tkinter.Tk()
+PNU_window.title("ChatPNU")
 
-# 폰트설정
-customFont = font.Font(family="Helvetica", size=20)
+customFont = font.Font(size=20)
 
-# 대화 영역 스크롤바 설정
-scrollbar = tk.Scrollbar(root)
-scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+scrollbar = tkinter.Scrollbar(PNU_window)
+scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 
-# 대화 영역
-chat_history = tk.Text(root, height=15, width=50, font=customFont, yscrollcommand=scrollbar.set)
-chat_history.pack()
+chat_field = tkinter.Text(PNU_window, height=15, width=50, font=customFont, yscrollcommand=scrollbar.set)
+chat_field.pack()
 
-# 스크롤바와 텍스트 위젯 연결
-scrollbar.config(command=chat_history.yview)
+chat_field.insert(tkinter.END, "ChatPNU: " + answer("자기소개 해 줘!") + "\n")
 
-# 입력 필드
-user_input_field = tk.Entry(root, width=50, font=customFont)
+notice = "* (식단정보) 오늘(" + f"{today}" + ")과 내일(" + f"{tomorrow}" + "일)이 아닌 다른날의 정보는 다를 수 있습니다."
+message=tkinter.Message(PNU_window, text=notice, width=700)
+message.pack()
+
+chat_field.tag_config("User_color", foreground="blue")
+
+scrollbar.config(command=chat_field.yview)
+
+user_input_field = tkinter.Entry(PNU_window, width=50, font=customFont)
 user_input_field.pack()
-user_input_field.bind("<Return>", respond_to_user)  # 엔터 키 이벤트 바인딩
+user_input_field.bind("<Return>", chatPNU)  # 엔터 키 이벤트 바인딩
 
-# 전송 버튼
-send_button = tk.Button(root, text="전송", command=respond_to_user)
+send_button = tkinter.Button(PNU_window, text="전송", command=chatPNU)
 send_button.pack()
 
-
-
-# 메인 루프 시작
-root.mainloop()
+PNU_window.mainloop()
