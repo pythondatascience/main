@@ -1,0 +1,68 @@
+@startuml
+
+actor User
+participant ChatGUI
+participant OpenAI
+participant Prompting
+participant storage
+participant PNU_Crawling
+participant menu
+participant Notice
+participant Schedule
+participant BusanMap
+
+
+activate User
+User -> ChatGUI : asking
+activate ChatGUI
+ChatGUI -> OpenAI : pass question
+activate OpenAI
+OpenAI -> BusanMap : request map data
+activate BusanMap
+OpenAI -> Prompting : read prompt file
+activate Prompting
+Prompting -> storage : access storage
+activate storage
+storage -> PNU_Crawling : request notice.csv/schedule.csv file
+activate PNU_Crawling
+
+
+PNU_Crawling -> Notice : provide notice website data
+activate Notice
+Notice -> Notice : sort notice data
+Notice-> PNU_Crawling : provide sorted notice data 
+deactivate Notice 
+
+PNU_Crawling -> Schedule : provide schedule website data
+activate Schedule
+Schedule -> Schedule : sort schedule data
+Schedule -> PNU_Crawling : provide sorted schedule data
+deactivate Schedule
+PNU_Crawling -> PNU_Crawling : make notice.csv/schedule.csv file
+PNU_Crawling -> storage : provide notice.csv/schedule.csv files
+deactivate PNU_Crawling
+
+storage -> menu : request menu.csv file (once a day)
+activate menu
+menu -> menu : extract and sort menu data
+menu -> storage : provide menu.csv file 
+deactivate menu 
+storage -> storage : update notice.csv/schedule.csv files
+
+
+storage -> Prompting : provide 3 csv files
+deactivate storage
+Prompting -> Prompting : refine csv data (to txt) & create guideline
+Prompting -> OpenAI : provide updated prompt data
+deactivate Prompting
+OpenAI -> OpenAI : create answer
+OpenAI -> ChatGUI : provide answer
+deactivate OpenAI
+ChatGUI -> User : show answer
+deactivate ChatGUI
+BusanMap -> User : show map
+deactivate BusanMap
+deactivate OpenAI
+
+
+@enduml
