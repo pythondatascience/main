@@ -1,0 +1,16 @@
+@startuml
+
+
+class Menu {
+    -meal_times :list<string>
+    -csv_file_path:csv
+    -target_date:datetime
+ 
+    +get_meal_url_for_date(meal_time:string, target_date:datetime):url:string
+    +get_menu_info(item_title:string): menu_string:string, meal_type:string
+    +crawl_menu_info(url:string):tag(string) or None
+    +write_to_csv(csv_writer:string, menu_info:string, target_date:datetime, meal_time:string):void
+}
+
+
+@enduml
