@@ -1,10 +1,11 @@
+# test python code
+# 제작자 : 최정민
+
 import requests
 from bs4 import BeautifulSoup
 import folium as g
 import googlemaps as m
-
-#import tkinter as tk #
-import webview
+import subprocess
 
 class BusanMap:
     def __init__(self, gmaps_key, bus_api_key):
@@ -78,28 +79,14 @@ class BusanMap:
 
 gmaps_key =  'AIzaSyA7PxgOBSjKmZ63DhoJOE-PJR4gbm4WYNw'
 bus_api_key = 'Fc0bdu/n6BeHierLzLLkEkCEhc70zpeD92N0vcWYA3Pv/i22Bl8Z9yIGLv8AwjMj8SVDTsXZLohzxgATlYcvIQ=='
-line_id = 5291107000 #5291107000 : keumjunggu7, key=5200051000 : 51
+line_id = 5291107000
 
-# try:
+
 bs = BusanMap(gmaps_key, bus_api_key)
-#print(bs.get_bus_info(line_id))
 bs.get_bus_info(line_id)
-bs.generate_map([35.231944, 129.083333], 15) #busan_entire : [35.1795543, 129.0756416, zoom : 12] #busan_university : [35.231944, 129.083333, zoom : 15]
+bs.generate_map([35.231944, 129.083333], 15) 
 bs.bus_map.save('bus_map.html')
 
-# # https://www.geeksforgeeks.org/how-to-open-a-website-in-a-tkinter-window/ #pip install tkinter, pip install webview
-# # define an instance of tkinter 
-# #tk = tk.Tk() 
-
-# #  size of the window where we show our website 
-# #tk.geometry("800x450") 
-
-# # Open website 
-# webview.create_window('Bus Map', './bus_map.html') 
-# webview.start() 
-# # except:
-# #     print('error : start a program again')
-
-import subprocess
-html_path = 'bus_map.html'
-subprocess.run(['firefox',html_path])
+html_path = "bus_map.html"
+subprocess.run(['open', html_path])
+#subprocess.run(['firefox',html_path])
