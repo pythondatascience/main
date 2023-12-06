@@ -131,7 +131,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 —————
 ### 7. 파이썬 파일별 요약
 
-##### 1. ChatGUI.py
+#### 1. ChatGUI.py
 
 1-1. 제작방식 : 혼합
 
@@ -151,140 +151,140 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-##### 2. OpenAI.py
+#### 2. OpenAI.py
 
-제작방식 : 자체개발
+2-1. 제작방식 : 자체개발
 
-제작자 : 정주영, 최정민
+2-2. 제작자 : 정주영, 최정민
 
-사용모듈 : openai
+2-3. 사용모듈 : openai
 
-독창적인 부분
+2-4. 독창적인 부분
 
-: 최근 관심이 높은 ChatGPT와 프롬프팅기술을 이용하여 부산대학교 전용 LLM서비스를 구축
+1. 최근 관심이 높은 ChatGPT와 프롬프팅기술을 이용하여 부산대학교 전용 LLM서비스를 구축
 
-: GPT를 이용했기 때문에 자연어를 구사하여 원하는 정보를 얻을 수 있음
+2. GPT를 이용했기 때문에 자연어를 구사하여 원하는 정보를 얻을 수 있음
 
-: 파일 I/O를 이용하여 코드를 간결하게 구현
+3. 파일 I/O를 이용하여 코드를 간결하게 구현
 
-: 전체적인 대화 알고리즘은 자체적으로 생각하여 구현
+4. 전체적인 대화 알고리즘은 자체적으로 생각하여 구현
 
-참조문헌
+2-5. 참조문헌
 
-: <https://platform.openai.com/docs/guides/text-generation/chat-completions-api> : 해당 홈페이지의 reference 참조
+1. <https://platform.openai.com/docs/guides/text-generation/chat-completions-api> : 해당 홈페이지의 reference 참조
 
 
 
-##### 3. bus_track.py
+#### 3. bus_track.py
 
-제작방식 : 혼합
+3-1. 제작방식 : 혼합
 
-제작자 : 최정민
+3-2. 제작자 : 최정민
 
-사용모듈 : requests, beautifulsoup4, lxml, folium, googlemaps
+3-3. 사용모듈 : requests, beautifulsoup4, lxml, folium, googlemaps
 
-독창적인 부분
+3-4. 독창적인 부분
 
-: 공공기관 데이터의 API를 받아 실시간으로 버스의 위치 확인가능
+1. 공공기관 데이터의 API를 받아 실시간으로 버스의 위치 확인가능
 
-: 버스의 상행, 하행의 방향 뿐만 아니라 정차 상태도 확인가능
+2. 버스의 상행, 하행의 방향 뿐만 아니라 정차 상태도 확인가능
 
-: 부산대 순환버스에서만 국한되는 것이 아니라, 버스 노선 id와 기준 좌표 수정시 다른 노선의 위치도 확인이 가능
+3. 부산대 순환버스에서만 국한되는 것이 아니라, 버스 노선 id와 기준 좌표 수정시 다른 노선의 위치도 확인이 가능
 
-참조문헌
+3-5. 참조문헌
 
-: ChatGPT : 코드의 대략적인 구조(클래스 형태 구현 측면에서)
+1. ChatGPT : 코드의 대략적인 구조(클래스 형태 구현 측면에서)
 
-: <https://www.data.go.kr/iim/api/selectAPIAcountView.do> : OpenAPI활용가이드_부산버스정보시스템_v2.0.docx 참고 (api키, 버스 실시간 좌표, 방향)
+2. <https://www.data.go.kr/iim/api/selectAPIAcountView.do> : OpenAPI활용가이드_부산버스정보시스템_v2.0.docx 참고 (api키, 버스 실시간 좌표, 방향)
 
-: <https://www.data.go.kr/data/15092750/openapi.do#tab_layer_detail_function> : 샘플 코드 > Python 쪽 참조 (데이터 가져오기)
+3. <https://www.data.go.kr/data/15092750/openapi.do#tab_layer_detail_function> : 샘플 코드 > Python 쪽 참조 (데이터 가져오기)
 
-: <https://minjoo-happy-blog.tistory.com/34> : 파싱 참조
+4. <https://minjoo-happy-blog.tistory.com/34> : 파싱 참조
 
-: <https://continuous-development.tistory.com/entry/Python-%EC%8B%9C%EA%B0%81%ED%99%94-%EC%82%AC%EC%9A%A9%EB%B2%95-folium-%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%A7%80%EB%8F%84-%EC%8B%9C%EA%B0%81%ED%99%94-%EB%B0%8F-%EB%A7%88%EC%BB%A4marker-%EC%B0%8D%EA%B8%B0> : folium 기초 명령어(핀 찍기, 지도 출력, 저장)
+5. <https://continuous-development.tistory.com/entry/Python-%EC%8B%9C%EA%B0%81%ED%99%94-%EC%82%AC%EC%9A%A9%EB%B2%95-folium-%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%A7%80%EB%8F%84-%EC%8B%9C%EA%B0%81%ED%99%94-%EB%B0%8F-%EB%A7%88%EC%BB%A4marker-%EC%B0%8D%EA%B8%B0> : folium 기초 명령어(핀 찍기, 지도 출력, 저장)
 
-: <https://wooiljeong.github.io/python/folium-google-tiles/> : folium 지도를 googlemap으로 설정
+6. <https://wooiljeong.github.io/python/folium-google-tiles/> : folium 지도를 googlemap으로 설정
 
 
 
-##### 4. menu.py
+#### 4. menu.py
 
-제작방식 : 혼합
+4-1. 제작방식 : 혼합
 
-제작자 : 안도욱
+4-2. 제작자 : 안도욱
 
-사용모듈 : requests, bs4, datatime
+4-3. 사용모듈 : requests, bs4, datatime
 
-참조문헌
+4-4. 참조문헌
 
-: ChatGPT
+1. ChatGPT
 
 
 
-##### 5. notice.py
+#### 5. notice.py
 
-제작방식 : 혼합
+5-1. 제작방식 : 혼합
 
-제작자 : 홍석기
+5-2. 제작자 : 홍석기
 
-사용모듈 : bs4, requests, pandas
+5-3. 사용모듈 : bs4, requests, pandas
 
-참조문헌
+5-4. 참조문헌
 
-: ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
+1. ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
 
 
 
-##### 6. schedule.py
+#### 6. schedule.py
 
-제작방식 : 혼합
+6-1. 제작방식 : 혼합
 
-제작자 : 홍석기
+6-2. 제작자 : 홍석기
 
-사용모듈 : requests, pandas, bs4
+6-3. 사용모듈 : requests, pandas, bs4
 
-참조문헌
+6-4. 참조문헌
 
-: ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
+1. ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
 
 
 
-##### 7. Prompting.py
+#### 7. Prompting.py
 
-제작방식 : 자체개발
+7-1. 제작방식 : 자체개발
 
-제작자 : 최정민, 정주영
+7-2. 제작자 : 최정민, 정주영
 
-사용모듈 : pandas
+7-3. 사용모듈 : pandas
 
-독창적인 부분
+7-4. 독창적인 부분
 
-: GPT가 이해하기 쉽도록 정보를 나열하는 알고리즘을 공부하여 코드화하였음
+1. GPT가 이해하기 쉽도록 정보를 나열하는 알고리즘을 공부하여 코드화하였음
 
-: 수업때 배운 pandas를 이용
+2. 수업때 배운 pandas를 이용
 
-참조문헌
+7-5. 참조문헌
 
-: ChatGPT
+1. ChatGPT
 
-: 파이썬데이터사이언스 수업자료
+2. 파이썬데이터사이언스 수업자료
 
 
 
-##### 8. storage.py
+#### 8. storage.py
 
-제작방식 : 혼합
+8-1. 제작방식 : 혼합
 
-제작자 : 안도욱
+8-2. 제작자 : 안도욱
 
-사용모듈 : os, subprocess, datetime
+8-3. 사용모듈 : os, subprocess, datetime
 
-독창적인 부분
+8-4. 독창적인 부분
 
-: 파이썬 파일을 연결하였음
+1. 파이썬 파일을 연결하였음
 
-참조문헌
+8-5. 참조문헌
 
-: ChatGPT
+1. ChatGPT
 
 
