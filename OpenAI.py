@@ -21,7 +21,7 @@
 import openai
 import subprocess
 
-openai.api_key = "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"
+openai.api_key = "YOUR_API_KEY"
 hidden_bus_key = "31qwef#fAWedf#fFsfdew"
 
 def answer(user_content):
