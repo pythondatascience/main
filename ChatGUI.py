@@ -15,6 +15,7 @@
 ## 제작방식
 # 혼합(정주영)
 
+## Start here (개발담당 : 정주영)
 import storage
 import tkinter
 import datetime
@@ -67,3 +68,5 @@ send_button = tkinter.Button(PNU_window, text="전송", command=chatPNU)
 send_button.pack()
 
 PNU_window.mainloop()
+
+## End here (개발담당 : 정주영)
