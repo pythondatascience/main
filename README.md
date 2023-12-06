@@ -1,5 +1,4 @@
 # main
-
 ### 1. 프로그램 구동을 위한 필수 패키지
 
 tkinter
@@ -131,7 +130,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 —————
 ### 7. 파이썬 파일별 요약
 
-1. ChatGUI.py
+##### 1. ChatGUI.py
 
 제작방식 : 혼합
 
@@ -151,7 +150,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-2. OpenAI.py
+##### 2. OpenAI.py
 
 제작방식 : 자체개발
 
@@ -175,7 +174,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-3. bus_track.py
+##### 3. bus_track.py
 
 제작방식 : 혼합
 
@@ -207,7 +206,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-4. menu.py
+##### 4. menu.py
 
 제작방식 : 혼합
 
@@ -221,7 +220,8 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-5. notice.py
+##### 5. notice.py
+
 제작방식 : 혼합
 
 제작자 : 홍석기
@@ -234,7 +234,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-6. schedule.py
+##### 6. schedule.py
 
 제작방식 : 혼합
 
@@ -248,7 +248,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-7. Prompting.py
+##### 7. Prompting.py
 
 제작방식 : 자체개발
 
@@ -270,7 +270,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 
 
-8. storage.py
+##### 8. storage.py
 
 제작방식 : 혼합
 
