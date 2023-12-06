@@ -13,18 +13,16 @@ participant BusanMap
 
 
 activate User
-User -> ChatGUI : asking
+User -> ChatGUI : open program
 activate ChatGUI
-ChatGUI -> OpenAI : pass question
-activate OpenAI
-OpenAI -> BusanMap : request map data
-activate BusanMap
-OpenAI -> Prompting : read prompt file
-activate Prompting
-Prompting -> storage : access storage
+ChatGUI -> storage : execute storage.py
+deactivate ChatGUI
 activate storage
 storage -> PNU_Crawling : request notice.csv/schedule.csv file
 activate PNU_Crawling
+
+
+
 
 
 PNU_Crawling -> Notice : provide notice website data
@@ -48,21 +46,37 @@ menu -> menu : extract and sort menu data
 menu -> storage : provide menu.csv file 
 deactivate menu 
 storage -> storage : update notice.csv/schedule.csv files
-
-
 storage -> Prompting : provide 3 csv files
 deactivate storage
-Prompting -> Prompting : refine csv data (to txt) & create guideline
-Prompting -> OpenAI : provide updated prompt data
+activate Prompting
+deactivate storage 
+Prompting -> Prompting : refine csv data (to txt) & create guidel
+
+
+
+User -> ChatGUI : asking
+activate ChatGUI
+ChatGUI -> OpenAI : pass question
+activate OpenAI
+OpenAI -> Prompting : read prompt.txt file
+Prompting -> OpenAI : provide prompt.txt file
 deactivate Prompting
-OpenAI -> OpenAI : create answer
 OpenAI -> ChatGUI : provide answer
 deactivate OpenAI
 ChatGUI -> User : show answer
 deactivate ChatGUI
+User -> ChatGUI : ask bus map
+activate ChatGUI 
+ChatGUI -> OpenAI : pass question
+deactivate ChatGUI
+activate OpenAI
+OpenAI -> BusanMap : request map data
+deactivate OpenAI
+activate BusanMap
 BusanMap -> User : show map
 deactivate BusanMap
-deactivate OpenAI
+
+
 
 
 @enduml
