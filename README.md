@@ -1,4 +1,5 @@
 # main
+
 ### 1. 프로그램 구동을 위한 필수 패키지
 
 tkinter
@@ -140,13 +141,13 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 독창적인 부분
 
-  터미널에서 실행하는 것이 아니라 채팅창을 만들어 유저들의 이용편의성 증대
+: 터미널에서 실행하는 것이 아니라 채팅창을 만들어 유저들의 이용편의성 증대
 
-  import를 이용하여 파이썬 파일들을 연결하여 ChatGUI.py를 실행하여도 전체 코드가 작동되도록 동작
+: import를 이용하여 파이썬 파일들을 연결하여 ChatGUI.py를 실행하여도 전체 코드가 작동되도록 동작
 
 참조문헌
 
-  [OpenAI 레퍼런스](https://076923.github.io/posts/Python-tkinter-1/) : 해당 홈페이지의 tkinter 강의글 참조
+: [OpenAI 레퍼런스](https://076923.github.io/posts/Python-tkinter-1/) : 해당 홈페이지의 tkinter 강의글 참조
 
 
 
@@ -160,17 +161,17 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 독창적인 부분
 
-  최근 관심이 높은 ChatGPT와 프롬프팅기술을 이용하여 부산대학교 전용 LLM서비스를 구축
+: 최근 관심이 높은 ChatGPT와 프롬프팅기술을 이용하여 부산대학교 전용 LLM서비스를 구축
 
-  GPT를 이용했기 때문에 자연어를 구사하여 원하는 정보를 얻을 수 있음
+: GPT를 이용했기 때문에 자연어를 구사하여 원하는 정보를 얻을 수 있음
 
-  파일 I/O를 이용하여 코드를 간결하게 구현
+: 파일 I/O를 이용하여 코드를 간결하게 구현
 
-  전체적인 대화 알고리즘은 자체적으로 생각하여 구현
+: 전체적인 대화 알고리즘은 자체적으로 생각하여 구현
 
 참조문헌
 
-  <https://platform.openai.com/docs/guides/text-generation/chat-completions-api> : 해당 홈페이지의 reference 참조
+: <https://platform.openai.com/docs/guides/text-generation/chat-completions-api> : 해당 홈페이지의 reference 참조
 
 
 
@@ -184,25 +185,25 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 독창적인 부분
 
-  공공기관 데이터의 API를 받아 실시간으로 버스의 위치 확인가능
+: 공공기관 데이터의 API를 받아 실시간으로 버스의 위치 확인가능
 
-  버스의 상행, 하행의 방향 뿐만 아니라 정차 상태도 확인가능
+: 버스의 상행, 하행의 방향 뿐만 아니라 정차 상태도 확인가능
 
-  부산대 순환버스에서만 국한되는 것이 아니라, 버스 노선 id와 기준 좌표 수정시 다른 노선의 위치도 확인이 가능
+: 부산대 순환버스에서만 국한되는 것이 아니라, 버스 노선 id와 기준 좌표 수정시 다른 노선의 위치도 확인이 가능
 
 참조문헌
 
-  ChatGPT : 코드의 대략적인 구조(클래스 형태 구현 측면에서)
+: ChatGPT : 코드의 대략적인 구조(클래스 형태 구현 측면에서)
 
-  <https://www.data.go.kr/iim/api/selectAPIAcountView.do> : OpenAPI활용가이드_부산버스정보시스템_v2.0.docx 참고 (api키, 버스 실시간 좌표, 방향)
+: <https://www.data.go.kr/iim/api/selectAPIAcountView.do> : OpenAPI활용가이드_부산버스정보시스템_v2.0.docx 참고 (api키, 버스 실시간 좌표, 방향)
 
-  <https://www.data.go.kr/data/15092750/openapi.do#tab_layer_detail_function> : 샘플 코드 > Python 쪽 참조 (데이터 가져오기)
+: <https://www.data.go.kr/data/15092750/openapi.do#tab_layer_detail_function> : 샘플 코드 > Python 쪽 참조 (데이터 가져오기)
 
-  <https://minjoo-happy-blog.tistory.com/34> : 파싱 참조
+: <https://minjoo-happy-blog.tistory.com/34> : 파싱 참조
 
-  <https://continuous-development.tistory.com/entry/Python-%EC%8B%9C%EA%B0%81%ED%99%94-%EC%82%AC%EC%9A%A9%EB%B2%95-folium-%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%A7%80%EB%8F%84-%EC%8B%9C%EA%B0%81%ED%99%94-%EB%B0%8F-%EB%A7%88%EC%BB%A4marker-%EC%B0%8D%EA%B8%B0> : folium 기초 명령어(핀 찍기, 지도 출력, 저장)
+: <https://continuous-development.tistory.com/entry/Python-%EC%8B%9C%EA%B0%81%ED%99%94-%EC%82%AC%EC%9A%A9%EB%B2%95-folium-%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%A7%80%EB%8F%84-%EC%8B%9C%EA%B0%81%ED%99%94-%EB%B0%8F-%EB%A7%88%EC%BB%A4marker-%EC%B0%8D%EA%B8%B0> : folium 기초 명령어(핀 찍기, 지도 출력, 저장)
 
-  <https://wooiljeong.github.io/python/folium-google-tiles/> : folium 지도를 googlemap으로 설정
+: <https://wooiljeong.github.io/python/folium-google-tiles/> : folium 지도를 googlemap으로 설정
 
 
 
@@ -216,7 +217,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 참조문헌
 
-  ChatGPT
+: ChatGPT
 
 
 
@@ -229,7 +230,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 참조문헌
 
-  ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
+: ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
 
 
 
@@ -243,7 +244,7 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 참조문헌
 
-  ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
+: ChatGPT (실제 GPT에게 한 질문과 답변을 추가)
 
 
 
@@ -257,15 +258,15 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 독창적인 부분
 
-  GPT가 이해하기 쉽도록 정보를 나열하는 알고리즘을 공부하여 코드화하였음
+: GPT가 이해하기 쉽도록 정보를 나열하는 알고리즘을 공부하여 코드화하였음
 
-  수업때 배운 pandas를 이용
+: 수업때 배운 pandas를 이용
 
 참조문헌
 
-  ChatGPT
+: ChatGPT
 
-  파이썬데이터사이언스 수업자료
+: 파이썬데이터사이언스 수업자료
 
 
 
@@ -279,10 +280,10 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 독창적인 부분
 
-  파이썬 파일을 연결하였음
+: 파이썬 파일을 연결하였음
 
 참조문헌
 
- ChatGPT
+: ChatGPT
 
 
