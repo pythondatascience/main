@@ -1,4 +1,5 @@
 # main
+
 ### 1. 프로그램 구동을 위한 필수 패키지
 
 tkinter
@@ -132,21 +133,21 @@ User - ChatGUI 시퀀스를 중심으로, 크롤링과 버스정보, GPT통신�
 
 ##### 1. ChatGUI.py
 
-제작방식 : 혼합
+1-1. 제작방식 : 혼합
 
-제작자 : 정주영
+1-2. 제작자 : 정주영
 
-사용모듈 : tkinter, datetime
+1-3. 사용모듈 : tkinter, datetime
 
-독창적인 부분
+1-4. 독창적인 부분
 
-: 터미널에서 실행하는 것이 아니라 채팅창을 만들어 유저들의 이용편의성 증대
+1. 터미널에서 실행하는 것이 아니라 채팅창을 만들어 유저들의 이용편의성 증대
 
-: import를 이용하여 파이썬 파일들을 연결하여 ChatGUI.py를 실행하여도 전체 코드가 작동되도록 동작
+2. import를 이용하여 파이썬 파일들을 연결하여 ChatGUI.py를 실행하여도 전체 코드가 작동되도록 동작
 
-참조문헌
+1-5. 참조문헌
 
-: [OpenAI 레퍼런스](https://076923.github.io/posts/Python-tkinter-1/) : 해당 홈페이지의 tkinter 강의글 참조
+1. [OpenAI 레퍼런스](https://076923.github.io/posts/Python-tkinter-1/) : 해당 홈페이지의 tkinter 강의글 참조
 
 
 
